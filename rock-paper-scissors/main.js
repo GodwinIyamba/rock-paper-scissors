@@ -31,8 +31,19 @@ function computerPlay() {
 }
 
 function playerPlay() {
-    let choice = scissorsBtn.getAttribute('data-choice').toLowerCase();
-    return choice;
+    return scissorsBtn.getAttribute('data-choice');
+}
+
+function checkScore(player, computer) {
+    if(player == 5 || computer == 5) {
+        if(player > computer) {
+            resultCaption.textContent = 'Game over. You win';
+            resetUI();
+        } else {
+            resultCaption.textContent = 'Game over. You lose';
+            resetUI();
+        }
+    }
 }
 
 function playRound(computerSelection, playerSelection) {
@@ -42,74 +53,19 @@ function playRound(computerSelection, playerSelection) {
     if(playerSelection == computerSelection) {
         resultCaption.textContent = 'It\'s a tie'
     } else if((playerSelection == "rock" && computerSelection == "paper" ) || (playerSelection == "scissors" && computerSelection == "rock" ) || (playerSelection == "paper" && computerSelection == "scissors" )) {
-        cScore = ++cScore;
+        ++cScore;
+        computerScore.textContent = cScore;
         resultCaption.textContent = 'You lose';
     } else if((computerSelection == "rock" && playerSelection == "paper") || (computerSelection == "scissors" && playerSelection == "rock") || (computerSelection == "paper" && playerSelection == "scissors")) {
-        pScore = ++pScore;
+        ++pScore;
+        playerScore.textContent = pScore;
         resultCaption.textContent = 'You win';
-    } 
+    }
+
+    checkScore(pScore, cScore);
 }
 
 window.addEventListener('load', resetUI);
 
-// for(let i = 0; i < buttons.length; i++) {
-//     buttons[i].addEventListener('click', playRound(computerPlay, playerPlay(buttons[i])));
-// }
 
 scissorsBtn.addEventListener('click', () => playRound(computerPlay(), playerPlay()));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function game() {
-    
-//     const playerSelection = prompt("Enter your choice?").toLowerCase();
-
-//     const computerSelection = computerPlay().toLowerCase();
-
-//     let result = playRound(playerSelection, computerSelection);
-
-//     console.log(result);
-//     console.log(`Player Score: ${playerScore}`);
-//     console.log(`Computer Score: ${computerScore}`);
-        
-// }
-
-
-
-    // let computerWeaponChoice = computerPlay();
-    // let playerWeaponChoice = btn.getAttribute('data-choice');
-    // playerChoice.textContent = playerWeaponChoice;
-    // computerChoice.textContent = computerWeaponChoice; 
-
-
-    // computerImage.setAttribute('src', `./images/${computerWeaponChoice}.png`);
-    // playerImage.setAttribute('src', `./images/${playerWeaponChoice}.png`); 
