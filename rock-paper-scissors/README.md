@@ -1,0 +1,1 @@
+This is my solution to The Odin Projects's Rock Paper Scissors Project under the Foundations Path
