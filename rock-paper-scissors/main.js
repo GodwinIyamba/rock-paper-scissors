@@ -40,17 +40,19 @@ function game() {
         console.log(`Computer Score: ${computerScore}`);
 }
 
-for(let i = 0; i < 50; i++) {
-    game()
+game();
 
-    if(playerScore == 5 || computerScore == 5) {
-        if(playerScore > computerScore) {
-            console.log("You won!")
-        } else {
-            console.log("You lost. Oops!")
-        }
-        break;
-    }
-}
+// for(let i = 0; i < 50; i++) {
+//     game()
+
+//     if(playerScore == 5 || computerScore == 5) {
+//         if(playerScore > computerScore) {
+//             console.log("You won!")
+//         } else {
+//             console.log("You lost. Oops!")
+//         }
+//         break;
+//     }
+// }
 
 
