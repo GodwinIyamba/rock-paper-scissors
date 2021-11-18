@@ -8,19 +8,18 @@ const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
 const buttons = document.querySelectorAll('.btn-choice');
 
-// const rockChoice = rockBtn.getAttribute('data-choice');
-// const paperChoice = rockBtn.getAttribute('data-choice');
-// const scissorsChoice = rockBtn.getAttribute('data-choice');
-
 let pScore = 0; //Player Score
 let cScore = 0; //Computer Score
+let pChoice; //Player choice
 
 function resetUI() {
+    pScore = 0;
+    cScore = 0;
     computerChoice.textContent = "";
     playerChoice.textContent = "";
     computerScore.textContent = 0;
     playerScore.textContent = 0;
-    resultCaption.textContent = "";
+    resultCaption.textContent = "start game";
 }
 
 function computerPlay() {
@@ -30,19 +29,14 @@ function computerPlay() {
     return result;
 }
 
-function playerPlay() {
-    return scissorsBtn.getAttribute('data-choice');
-}
-
 function checkScore(player, computer) {
     if(player == 5 || computer == 5) {
         if(player > computer) {
             resultCaption.textContent = 'Game over. You win';
-            resetUI();
         } else {
             resultCaption.textContent = 'Game over. You lose';
-            resetUI();
         }
+        resetUI();
     }
 }
 
@@ -67,5 +61,5 @@ function playRound(computerSelection, playerSelection) {
 
 window.addEventListener('load', resetUI);
 
+buttons.forEach(btn => btn.addEventListener('click', () => playRound(computerPlay(), btn.getAttribute('data-choice'))))
 
-scissorsBtn.addEventListener('click', () => playRound(computerPlay(), playerPlay()));

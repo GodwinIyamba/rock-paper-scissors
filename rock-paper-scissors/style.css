@@ -47,6 +47,7 @@ img {
 .title {
   text-transform: capitalize;
   text-align: center;
+  margin-bottom: 0;
 }
 
 .player-score,
@@ -77,8 +78,8 @@ img {
 .computer .img-wrapper .score,
 .player .img-wrapper .score {
   margin-top: 20px;
-  font-size: 20px;
-  width: 150px;
+  font-size: 15px;
+  width: 120px;
   height: auto;
   text-align: center;
 }
