@@ -1,3 +1,23 @@
+const buttons = document.querySelectorAll(".btn-choice");
+const computerChoice = document.querySelector(".computer-desc"); 
+const playerChoice = document.querySelector(".player-desc"); 
+const computerImage = document.querySelector(".computer-img"); 
+const playerImage = document.querySelector(".player-img"); 
+
+
+buttons.forEach(btn => btn.addEventListener('click', function(e){
+    let computerWeaponChoice = computerPlay();
+    let playerWeaponChoice = btn.getAttribute('data-choice');
+    playerChoice.textContent = playerWeaponChoice;
+    computerChoice.textContent = computerWeaponChoice; 
+
+
+    computerImage.setAttribute('src', `./images/${computerWeaponChoice}.png`);
+    playerImage.setAttribute('src', `./images/${playerWeaponChoice}.png`);
+    
+}))
+
+
 
 
 let playerScore = 0;
@@ -25,6 +45,11 @@ function playRound(playerSelection, computerSelection) {
         playerScore = ++playerScore;
         return `You win. ${playerSelection} beats ${computerSelection}`;
     } 
+
+
+    console.log(result);
+    console.log(`Player Score: ${playerScore}`);
+    console.log(`Computer Score: ${computerScore}`);
 }
 
 function game() {
@@ -35,12 +60,8 @@ function game() {
         let result = playRound(playerSelection, computerSelection);
 
 
-        console.log(result);
-        console.log(`Player Score: ${playerScore}`);
-        console.log(`Computer Score: ${computerScore}`);
+        
 }
-
-game();
 
 // for(let i = 0; i < 50; i++) {
 //     game()
@@ -54,5 +75,3 @@ game();
 //         break;
 //     }
 // }
-
-
