@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="./style.css">
 
     <!-- javascript -->
-    <script src="main.js" defer></script>
+    <script src="main.js" defer>
+        console.log("Hello World");
+    </script>
 
 </head>
 
@@ -21,13 +23,13 @@
         <!-- Result Panel -->
         <div class="wrapper">
             <div class="computer">
-                <div class="img-wrapper">
-                    <div class="desc">
+                <div class="score-wrapper">
+                    <div class="computer-desc">
                         rock
                     </div>
-                    <img src="./images/rock.png" alt="rock" class="paper">
-                    <div class="score">
-                        computer score: <span>1</span>
+                    <span class="computer-score">1</span>
+                    <div class="label">
+                        computer
                     </div>
                 </div>
             </div>
@@ -35,13 +37,13 @@
                 <p class="result-caption">it's a tie</p>
             </div>
             <div class="player">
-                <div class="img-wrapper">
-                    <div class="desc">
+                <div class="score-wrapper">
+                    <div class="player-desc">
                         rock
                     </div>
-                    <img src="./images/rock.png" alt="rock" class="paper">
-                    <div class="score">
-                        your score: <span>1</span>
+                    <span class="player-score">1</span>
+                    <div class="label">
+                        player
                     </div>
                 </div>
             </div>
@@ -51,19 +53,19 @@
         <div class="player-choice">
             <h2 class="title">make your choice</h2>
             <div class="wrapper">
-                <div class="img-wrapper">
+                <div class="img-wrapper btn-choice" data-choice="rock">
                     <img src="./images/rock.png" alt="rock" class="rock">
-                    <div class="desc" data-choice="rock">
+                    <div class="desc" >
                        rock
                     </div>
                 </div>
-                <div class="img-wrapper">
+                <div class="img-wrapper btn-choice" data-choice="paper">
                     <img src="./images/paper.png" alt="rock" class="paper">
-                    <div class="desc" data-choice="paper">
+                    <div class="desc" >
                         paper
                     </div>
                 </div>
-                <div class="img-wrapper">
+                <div class="img-wrapper btn-choice" data-choice="scissors">
                     <img src="./images/scissors.png" alt="scissorss" class="scissors">
                     <div class="desc">
                         scissors

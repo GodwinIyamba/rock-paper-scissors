@@ -25,7 +25,7 @@ body {
 
 .wrapper {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   padding: 10px;
 }
 
@@ -34,7 +34,8 @@ img {
   height: 100%;
 }
 
-.img-wrapper {
+.img-wrapper,
+.score-wrapper {
   max-width: 200px;
   display: flex;
   flex-direction: column;
@@ -48,6 +49,15 @@ img {
   text-align: center;
 }
 
+.player-score,
+.computer-score {
+  font-size: 120px;
+}
+
+.label {
+  font-size: 32px;
+}
+
 /* Result panel */
 .computer,
 .player {
@@ -56,28 +66,32 @@ img {
   align-items: center;
 }
 
-.computer .img-wrapper .desc,
-.player .img-wrapper .desc {
-  margin-bottom: 20px;
+.computer .score-wrapper .computer-desc,
+.player .score-wrapper .player-desc {
   font-size: 20px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
 }
 
 .computer .img-wrapper .score,
 .player .img-wrapper .score {
   margin-top: 20px;
   font-size: 20px;
+  width: 150px;
+  height: auto;
+  text-align: center;
 }
 
 .divider {
   display: flex;
   align-items: center;
+  justify-content: center;
   align-self: center;
   flex-shrink: 0;
-  height: 50px;
-  padding: 0 10px;
   font-size: 25px;
+  color: #ffffff;
   text-transform: capitalize;
-  background-color: rgb(244, 194, 78);
 }
 
 /* Player choice */
