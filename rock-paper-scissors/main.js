@@ -3,14 +3,10 @@ const playerChoice = document.querySelector('.player-desc');
 const computerScore = document.querySelector('.computer-score');
 const playerScore = document.querySelector('.player-score');
 const resultCaption = document.querySelector('.result-caption');
-const rockBtn = document.querySelector('.rock');
-const paperBtn = document.querySelector('.paper');
-const scissorsBtn = document.querySelector('.scissors');
 const buttons = document.querySelectorAll('.btn-choice');
 
 let pScore = 0; //Player Score
 let cScore = 0; //Computer Score
-let pChoice; //Player choice
 
 function resetUI() {
     pScore = 0;
@@ -62,4 +58,3 @@ function playRound(computerSelection, playerSelection) {
 window.addEventListener('load', resetUI);
 
 buttons.forEach(btn => btn.addEventListener('click', () => playRound(computerPlay(), btn.getAttribute('data-choice'))))
-
