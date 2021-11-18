@@ -1,77 +1,115 @@
-const buttons = document.querySelectorAll(".btn-choice");
-const computerChoice = document.querySelector(".computer-desc"); 
-const playerChoice = document.querySelector(".player-desc"); 
-const computerImage = document.querySelector(".computer-img"); 
-const playerImage = document.querySelector(".player-img"); 
+const computerChoice = document.querySelector('.computer-desc');
+const playerChoice = document.querySelector('.player-desc');
+const computerScore = document.querySelector('.computer-score');
+const playerScore = document.querySelector('.player-score');
+const resultCaption = document.querySelector('.result-caption');
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorsBtn = document.querySelector('.scissors');
+const buttons = document.querySelectorAll('.btn-choice');
 
+// const rockChoice = rockBtn.getAttribute('data-choice');
+// const paperChoice = rockBtn.getAttribute('data-choice');
+// const scissorsChoice = rockBtn.getAttribute('data-choice');
 
-buttons.forEach(btn => btn.addEventListener('click', function(e){
-    let computerWeaponChoice = computerPlay();
-    let playerWeaponChoice = btn.getAttribute('data-choice');
-    playerChoice.textContent = playerWeaponChoice;
-    computerChoice.textContent = computerWeaponChoice; 
+let pScore = 0; //Player Score
+let cScore = 0; //Computer Score
 
-
-    computerImage.setAttribute('src', `./images/${computerWeaponChoice}.png`);
-    playerImage.setAttribute('src', `./images/${playerWeaponChoice}.png`);
-    
-}))
-
-
-
-
-let playerScore = 0;
-let computerScore = 0;
-
+function resetUI() {
+    computerChoice.textContent = "";
+    playerChoice.textContent = "";
+    computerScore.textContent = 0;
+    playerScore.textContent = 0;
+    resultCaption.textContent = "";
+}
 
 function computerPlay() {
     let array = ["Rock", "Paper", "Scissors"];
     let randomNumber = Math.floor(Math.random() * array.length);
-    let result = array[randomNumber]
+    let result = array[randomNumber].toLowerCase();
     return result;
 }
 
-function playRound(playerSelection, computerSelection) {
+function playerPlay() {
+    let choice = scissorsBtn.getAttribute('data-choice').toLowerCase();
+    return choice;
+}
+
+function playRound(computerSelection, playerSelection) {
+    computerChoice.textContent = computerSelection;
+    playerChoice.textContent = playerSelection;
 
     if(playerSelection == computerSelection) {
-        return "It's a tie. Play another round"
-
-
+        resultCaption.textContent = 'It\'s a tie'
     } else if((playerSelection == "rock" && computerSelection == "paper" ) || (playerSelection == "scissors" && computerSelection == "rock" ) || (playerSelection == "paper" && computerSelection == "scissors" )) {
-        computerScore = ++computerScore;
-        return `You lose. ${computerSelection} beats rock`;
-
+        cScore = ++cScore;
+        resultCaption.textContent = 'You lose';
     } else if((computerSelection == "rock" && playerSelection == "paper") || (computerSelection == "scissors" && playerSelection == "rock") || (computerSelection == "paper" && playerSelection == "scissors")) {
-        playerScore = ++playerScore;
-        return `You win. ${playerSelection} beats ${computerSelection}`;
+        pScore = ++pScore;
+        resultCaption.textContent = 'You win';
     } 
-
-
-    console.log(result);
-    console.log(`Player Score: ${playerScore}`);
-    console.log(`Computer Score: ${computerScore}`);
 }
 
-function game() {
-        const playerSelection = prompt("Enter your choice?").toLowerCase();
+window.addEventListener('load', resetUI);
 
-        const computerSelection = computerPlay().toLowerCase();
-
-        let result = playRound(playerSelection, computerSelection);
-
-
-        
-}
-
-// for(let i = 0; i < 50; i++) {
-//     game()
-
-//     if(playerScore == 5 || computerScore == 5) {
-//         if(playerScore > computerScore) {
-//             console.log("You won!")
-//         } else {
-//             console.log("You lost. Oops!")
-//         }
-//         break;
-//     }
+// for(let i = 0; i < buttons.length; i++) {
+//     buttons[i].addEventListener('click', playRound(computerPlay, playerPlay(buttons[i])));
 // }
+
+scissorsBtn.addEventListener('click', () => playRound(computerPlay(), playerPlay()));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function game() {
+    
+//     const playerSelection = prompt("Enter your choice?").toLowerCase();
+
+//     const computerSelection = computerPlay().toLowerCase();
+
+//     let result = playRound(playerSelection, computerSelection);
+
+//     console.log(result);
+//     console.log(`Player Score: ${playerScore}`);
+//     console.log(`Computer Score: ${computerScore}`);
+        
+// }
+
+
+
+    // let computerWeaponChoice = computerPlay();
+    // let playerWeaponChoice = btn.getAttribute('data-choice');
+    // playerChoice.textContent = playerWeaponChoice;
+    // computerChoice.textContent = computerWeaponChoice; 
+
+
+    // computerImage.setAttribute('src', `./images/${computerWeaponChoice}.png`);
+    // playerImage.setAttribute('src', `./images/${playerWeaponChoice}.png`); 
