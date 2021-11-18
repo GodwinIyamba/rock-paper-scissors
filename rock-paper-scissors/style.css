@@ -84,10 +84,8 @@ img {
 }
 
 .divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   align-self: center;
+  text-align: center;
   flex-shrink: 0;
   width: 200px;
   height: 50px;
